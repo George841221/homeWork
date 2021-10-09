@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 public class Comments {
 
     private int commentId;
-    private String commenterName;
+    private final String commenterName;
     private String commentText;
     private final Timestamp WROTE_ON_DATE;
 

@@ -6,10 +6,10 @@ public class HomeWork {
 
     public static void main(String[] args) {
 
-        ConnectToDb.connenct();
+        ConnectToDb.connectToMyDb();
 
         System.out.println(Queries.usersData(Helper.statusUsersData));
         System.out.println();
-       // System.out.println(Queries.test(Helper.allUsersData));
+        Queries.sourcingUserFromDb(Helper.selectFromDbAUser, "Erzsi");
     }
 }

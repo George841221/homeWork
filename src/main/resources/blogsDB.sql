@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS user_data(
     gender ENUM('male', 'female'),
     user_status ENUM('admin', 'moderator', 'user'),
     age INT DEFAULT 0,
-    reg_data DATETIME DEFAULT CURRENT_TIMESTAMP,
+    reg_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     user_email VARCHAR(50),
     user_password VARCHAR(50),
     PRIMARY KEY(user_id)
@@ -28,7 +28,7 @@ CREATE TABLE /*IF NOT EXISTS*/ comment_data(
 	comment_id INT UNSIGNED NOT NULL UNIQUE AUTO_INCREMENT,
     commenter_name VARCHAR(50),
     comment_text TEXT,
-    wrote_on_data DATETIME DEFAULT CURRENT_TIMESTAMP,
+    wrote_on_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(comment_id)
 );
 

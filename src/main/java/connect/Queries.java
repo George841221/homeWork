@@ -4,11 +4,7 @@ import model.Gender;
 import model.Status;
 import model.Users;
 
-
-import javax.print.attribute.standard.DateTimeAtCreation;
 import java.sql.*;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +30,8 @@ public class Queries {
                 String userEmail = resultSet.getString("user_email");
                 String userPassword = resultSet.getString("user_password");
 
-                Users dataFromUsers = new Users(userId, userName, gender, status, age, REG_DATE, userEmail, userPassword);
+                Users dataFromUsers = new Users(userId, userName, gender, status,
+                        age, REG_DATE, userEmail, userPassword);
 
                 usersData.add(dataFromUsers);
             }
@@ -44,29 +41,24 @@ public class Queries {
         return usersData;
     }
 
-    /*public static List<String> test(String querySelect) {
-        List<String> userList = new ArrayList<>();
+    public static void sourcingUserFromDb(String querySelect, String sourceName) {
 
         try {
-                Statement st = ConnectToDb.connection.createStatement();
-                ResultSet rs = st.executeQuery(querySelect);
+            PreparedStatement preparedStatement = ConnectToDb.connection.prepareStatement(querySelect);
+            preparedStatement.setString(1, sourceName);
+            ResultSet rs = preparedStatement.executeQuery();
                 while (rs.next()) {
-                    int numColumns = rs.getMetaData().getColumnCount();
-                    rs.getString(1);
-                    rs.getString(2);
-                    rs.getString(3);
-                    rs.getString(4);
-                    rs.getString(5);
-                    rs.getString(6);
-                    rs.getString(7);
-                    rs.getString(8);
-                    for (int i = 1; i <= numColumns; i++) {
-                        System.out.println("COLUMN " + i + " = " + rs.getObject(i));
-                    }
+                    System.out.println("User ID: " + rs.getString(1));
+                    System.out.println("User name: " + rs.getString(2));
+                    System.out.println("Gender: " + rs.getString(3));
+                    System.out.println("Status: " + rs.getString(4));
+                    System.out.println("Age: " + rs.getString(5));
+                    System.out.println("Registration date: " + rs.getString(6));
+                    System.out.println("User e-mail: " + rs.getString(7));
+                    System.out.println("User password: " + rs.getString(8));
                 }
             }
          catch (SQLException ignored) {
         }
-        return userList;
-    }*/
+    }
 }

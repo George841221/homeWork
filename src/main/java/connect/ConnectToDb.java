@@ -1,7 +1,6 @@
 package connect;
 
 import config.ConfigFile;
-import lombok.Getter;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,7 +10,7 @@ public class ConnectToDb {
 
     protected static Connection connection = null;
 
-    public static void connenct() {
+    public static void connectToMyDb() {
         try {
             connection = DriverManager.getConnection(ConfigFile.CONN,ConfigFile.USER_NAME,ConfigFile.PASSWORD);
             // System.out.println("Connected");
