@@ -8,8 +8,12 @@ public class HomeWork {
 
         ConnectToDb.connectToMyDb();
 
+        System.out.println(Queries.usersData(Helper.allUsersData));
+        System.out.println();
         System.out.println(Queries.usersData(Helper.statusUsersData));
         System.out.println();
-        Queries.sourcingUserFromDb(Helper.selectFromDbAUser, "Erzsi");
+        Queries.sourcingUserFromDb(Helper.selectFromDbAUser, "Pista Bácsi");
+        System.out.println();
+        System.out.println(Queries.oneUserAllBlogs(Helper.aUserAllBlogs, "Nedry"));
     }
 }

@@ -1,5 +1,6 @@
 package connect;
 
+import model.Blogs;
 import model.Gender;
 import model.Status;
 import model.Users;
@@ -60,5 +61,31 @@ public class Queries {
             }
          catch (SQLException ignored) {
         }
+    }
+
+    public static List<Blogs> oneUserAllBlogs(String querySelect, String userSelect) {
+
+        List<Blogs> userBlogs = new ArrayList<>();
+
+        try {
+            PreparedStatement preparedStatement = ConnectToDb.connection.prepareStatement(querySelect);
+            preparedStatement.setString(1, userSelect);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                int blogId = rs.getInt("blog_id");
+                String title = rs.getString("title");
+                String blogText = rs.getString("blog_text");
+                Timestamp WROTE_ON_DATE = rs.getTimestamp("wrote_on_date");
+
+                Blogs  userAllBlogs= new Blogs(blogId, title,blogText,
+                        WROTE_ON_DATE);
+
+                userBlogs.add(userAllBlogs);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return userBlogs;
     }
 }

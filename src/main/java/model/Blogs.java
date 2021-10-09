@@ -15,4 +15,12 @@ public class Blogs {
         this.blogText = blogText;
         this.WROTE_ON_DATE = WROTE_ON_DATE;
     }
+
+        @Override
+        public String toString() {
+            return blogId +
+                    ", " + title +
+                    ", " + blogText +
+                    ", " + WROTE_ON_DATE;
+    }
 }
