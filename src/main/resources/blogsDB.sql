@@ -52,6 +52,27 @@ CREATE TABLE /*IF NOT EXISTS*/ comment_controle(
 
 INSERT INTO user_data(user_name, gender, user_status, age, user_email, user_password) VALUES
 	('Pista Bácsi', 'male','user', 58, 'pistabá@valami.hu', 'titkos'),
-    ('Erzsi','female', 'admin', 25, 'erzsi@buli.hu', 'titkos2');
+    ('Erzsi', 'female', 'admin', 25, 'erzsi@buli.hu', 'titkos2'),
+    ('Nedry', 'male', 'moderator', 32, 'nedry@gmail.com', 'titkos3'),
+    ('Kiss József', 'male', 'user', 41, 'kiss.jozsi@freemail.hu', 'titkos4');
     
-SELECT* FROM user_data;
+    INSERT INTO blog_data(title, blog_text) VALUES
+		('Erzsi', 'Üdvözlet a tagoknak'),
+        ('Kiss József','első blogja'),
+        ('Erzsi','második blogja'),
+        ('Nedry','A Jurassic Park rendszerét is bedöntöttem, a facebook-é miért ne ment volna :D'),
+        ('Pista Bácsi','első blogja'),
+        ('Pista Bácsi','második blogja'),
+        ('Nedry','második blogja'),
+        ('Erzsi','harmadik blogja');
+        
+	INSERT INTO comment_data(commenter_name, comment_text) VALUES
+		('Erzsi', 'első kommentje'),
+        ('Kiss József','első kommentje'),
+        ('Erzsi','második kommentje'),
+        ('Nedry','első kommentje'),
+        ('Pista Bácsi','első kommentje'),
+        ('Pista Bácsi','második kommentje'),
+        ('Nedry','második kommentje'),
+        ('Erzsi','harmadik kommentje');
+    
