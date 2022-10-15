@@ -1,3 +1,4 @@
+import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 import config.Helper;
 import connect.ConnectToDb;
 import connect.Queries;
